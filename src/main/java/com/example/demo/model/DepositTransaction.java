@@ -1,0 +1,42 @@
+package com.example.demo.model;
+
+import jakarta.persistence.*;
+
+@Entity
+public class DepositTransaction{
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	private Double amount;
+	
+	@ManyToOne
+    @JoinColumn(name = "account_id")
+	private Account account;
+	
+	public DepositTransaction() {
+		
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	public Account getAccount() { return account; }
+    public void setAccount(Account account) { this.account = account; }
+}	
+	
+	
+	
